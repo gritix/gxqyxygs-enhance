@@ -1,0 +1,56 @@
+html[inject-hide] {
+  .inject-ele {
+    display: none !important;
+  }
+
+  .reverse-show {
+    display: unset !important;
+  }
+
+  .recover-width-358 {
+    width: 358px !important;
+  }
+}
+
+.my-btn-login,
+.my-btn-register,
+.my-btn-change {
+  font-size: 12px;
+  border: 1px solid #a9a9a9;
+  vertical-align: bottom;
+}
+
+.my-base-btn {
+  color: rgb(255, 255, 255);
+  background: rgb(213, 182, 97);
+  border: 1px solid rgb(213, 182, 97);
+  border-radius: 5px;
+}
+
+.my-btn-add {
+  display: inline;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.my-btn-update {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.side-btn {
+  z-index: 9999999px !important;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 30px;
+  font-size: 16px;
+}
+
+td:has(> #phone-check) {
+  text-align: left;
+}

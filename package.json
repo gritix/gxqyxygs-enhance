@@ -1,0 +1,34 @@
+{
+  "name": "gxqyxygs-enhance",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "author": "gritix",
+  "keywords": [
+    "Userscripts",
+    "Tampermonkey"
+  ],
+  "scripts": {
+    "build:monkey": "vite build -c vite.config.ts",
+    "build:chrome_mv2": "wxt build --mv2 -b chrome",
+    "build:firefox_mv2": "wxt build --mv2 -b firefox",
+    "build:chrome_mv3": "wxt build --mv3 -b chrome",
+    "build:firefox_mv3": "wxt build --mv3 -b firefox",
+    "zip:chrome_mv2": "wxt zip --mv2 -b chrome",
+    "zip:firefox_mv2": "wxt zip --mv2 -b firefox",
+    "zip:chrome_mv3": "wxt zip --mv3 -b chrome",
+    "zip:firefox_mv3": "wxt zip --mv3 -b firefox",
+    "build:all": "pnpm build:monkey && pnpm build:chrome_mv2 && pnpm build:chrome_mv3",
+    "zip": "cd dist && zip 全国企业信用信息公示系统（广西）增强浏览器扩展插件.zip chrome-mv2.crx chrome-mv3.crx gxqyxygs-enhance.user.js 必读.png"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^7.0.1",
+    "@types/node": "^25.0.10",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3",
+    "vite-plugin-monkey": "^7.1.1",
+    "wxt": "^0.20.13"
+  }
+}
