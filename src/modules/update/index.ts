@@ -11,7 +11,8 @@ const updatePageItem: Item[] = [
     fnRunAt: 'document-end',
     fn: () => {
       const ele = document.querySelector(`body > div.qiye-tian`)
-      const checkBtn = createBtn('input', 'inject-ele my-base-btn my-btn-update', '提交并公示', () => check && check())
+      const checkBtn = createBtn('input', 'inject-ele my-base-btn my-btn-update', '提交并公示', () => {})
+      checkBtn.setAttribute('onclick', 'check()')
       const eleDiv = document.createElement('div')
       eleDiv.className = 'inject-ele'
       eleDiv.style.paddingBottom = '20px'

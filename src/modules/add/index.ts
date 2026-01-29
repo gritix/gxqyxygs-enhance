@@ -52,13 +52,19 @@ const addPageElementIds = {
   },
   /** 党建 */
   party: {
-    yes: 'ancheIndModel_anche_partyModel_isparty1',
     no: 'ancheIndModel_anche_partyModel_isparty2',
+    numparm: 'ancheIndModel_anche_partyModel_numparm',
+    nodzz: 'ancheIndModel_anche_partyModel_parins4',
+    nody: 'ancheIndModel_anche_partyModel_resparmsign2',
+    nosj: 'ancheIndModel_anche_partyModel_resparsecsign2',
   },
   /** 团建 */
   party_t: {
-    yes: 'ancheIndModel_anche_partyModel_isparty_t1',
     no: 'ancheIndModel_anche_partyModel_isparty_t2',
+    numparm: 'ancheIndModel_anche_partyModel_numparm_t',
+    notzz: 'ancheIndModel_anche_partyModel_parins_t4',
+    noty: 'ancheIndModel_anche_partyModel_resparmsign_t2',
+    nosj: 'ancheIndModel_anche_partyModel_resparsecsign_t2',
   },
 }
 
@@ -151,8 +157,24 @@ const addPageItem: Item[] = [
         web_no && (web_no.checked = true)
         const party_no = getEleById<HTMLInputElement>(addPageElementIds.party.no)
         party_no && (party_no.checked = true)
+        const party_num = getEleById<HTMLInputElement>(addPageElementIds.party.numparm)
+        party_num && (party_num.value = '0')
+        const party_nodzz = getEleById<HTMLInputElement>(addPageElementIds.party.nodzz)
+        party_nodzz && (party_nodzz.checked = true)
+        const party_nody = getEleById<HTMLInputElement>(addPageElementIds.party.nody)
+        party_nody && (party_nody.checked = true)
+        const party_nosj = getEleById<HTMLInputElement>(addPageElementIds.party.nosj)
+        party_nosj && (party_nosj.checked = true)
         const party_t_no = getEleById<HTMLInputElement>(addPageElementIds.party_t.no)
         party_t_no && (party_t_no.checked = true)
+        const party_t_num = getEleById<HTMLInputElement>(addPageElementIds.party_t.numparm)
+        party_t_num && (party_t_num.value = '0')
+        const party_t_nodzz = getEleById<HTMLInputElement>(addPageElementIds.party_t.notzz)
+        party_t_nodzz && (party_t_nodzz.checked = true)
+        const party_t_nody = getEleById<HTMLInputElement>(addPageElementIds.party_t.noty)
+        party_t_nody && (party_t_nody.checked = true)
+        const party_t_nosj = getEleById<HTMLInputElement>(addPageElementIds.party_t.nosj)
+        party_t_nosj && (party_t_nosj.checked = true)
       })
       if (document.getElementById('importBeforeYearData')) {
         ele?.insertAdjacentHTML('afterbegin', `&nbsp;&nbsp;&nbsp;&nbsp;\n `)

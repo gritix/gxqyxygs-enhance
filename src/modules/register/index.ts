@@ -55,8 +55,8 @@ const registerPageItem: Item[] = [
       if ((!name_l) || (!cid_l) || (!name_p) || (!cid_p))
         return
       const syncL2PBtn = createBtn('input', 'my-btn-register inject-ele', '同步到联络员', () => {
-        name_p.value = name_l.value
-        cid_p.value = cid_l.value
+        name_l.value.length > 0 && (name_p.value = name_l.value)
+        cid_l.value.length > 0 && (cid_p.value = cid_l.value)
       })
       syncL2PBtn.style.height = `${name_l.getBoundingClientRect().height}px`
       name_l.parentElement?.appendChild(syncL2PBtn)
@@ -64,8 +64,8 @@ const registerPageItem: Item[] = [
       name_l.style.width = `${358 - syncL2PBtn.getBoundingClientRect().width}px`
 
       const syncP2LBtn = createBtn('input', 'my-btn-register inject-ele', '同步到负责人', () => {
-        name_l.value = name_p.value
-        cid_l.value = cid_p.value
+        name_p.value.length > 0 && (name_l.value = name_p.value)
+        cid_p.value.length > 0 && (cid_l.value = cid_p.value)
       })
       syncP2LBtn.style.height = `${name_p.getBoundingClientRect().height}px`
       name_p.parentElement?.appendChild(syncP2LBtn)
@@ -82,11 +82,11 @@ const registerPageItem: Item[] = [
     ],
     fnRunAt: 'document-end',
     fn: () => {
-      const regno = getEleById<HTMLInputElement>(registerPageElementIds.regno)
-      const cid_p = getEleById<HTMLInputElement>(registerPageElementIds.cid_p)
-      const phone_p = getEleById<HTMLInputElement>(registerPageElementIds.phone_p)
       const saveBtn = document.querySelector('button.btn-1[onclick="checkform();"]') as HTMLButtonElement
       saveBtn.addEventListener('click', () => {
+        const regno = getEleById<HTMLInputElement>(registerPageElementIds.regno)
+        const cid_p = getEleById<HTMLInputElement>(registerPageElementIds.cid_p)
+        const phone_p = getEleById<HTMLInputElement>(registerPageElementIds.phone_p)
         regno && (regno.value.length === 18) && GEStorage.set('register_to_login_regno', regno.value)
         cid_p && (cid_p.value.length === 18) && GEStorage.set('register_to_login_cid_p', cid_p.value)
         phone_p && (phone_p.value.length === 11) && GEStorage.set('register_to_add_phone_p', phone_p.value)
