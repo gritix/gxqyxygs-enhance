@@ -10,6 +10,9 @@ const updatePageItem: Item[] = [
     ],
     fnRunAt: 'document-end',
     fn: () => {
+      const bottomBtn = document.querySelector('#tab_7 > form > div > input[value="提交并公示"]')
+      if (!bottomBtn)
+        return
       const ele = document.querySelector(`body > div.qiye-tian`)
       const checkBtn = createBtn('input', 'inject-ele my-base-btn my-btn-update', '提交并公示', () => {})
       checkBtn.setAttribute('onclick', 'check()')
