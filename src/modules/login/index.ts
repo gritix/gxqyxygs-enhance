@@ -115,7 +115,7 @@ const loginPageItem: Item[] = [
         if (!regno)
           return
         regno.value = regNoSelection.value + fakeRegNoInput.value
-        if (regno.value.length === 18) {
+        if (regno.value.length === (regno.value.startsWith('4', 0) ? 15 : 18)) {
           fakeRegNoInput.remove()
           regNoSelection.remove()
           modifyBtn.remove()
@@ -210,7 +210,7 @@ const loginPageItem: Item[] = [
       sureBtn && sureBtn.addEventListener('click', () => {
         GEStorage.set('login_to_index_phone_p', phone.value)
         const saveRegNoStartList = new Set(GEStorage.get('regno_start_list', '').trim().toUpperCase().split(' '))
-        const nowRegNoStart = regno.value.substring(0, 10).toUpperCase()
+        const nowRegNoStart = regno.value.substring(0, regno.value.startsWith('4', 0) ? 9 : 10).toUpperCase()
         if (!saveRegNoStartList.has(nowRegNoStart)) {
           saveRegNoStartList.add(nowRegNoStart)
           GEStorage.set('regno_start_list', Array.from(saveRegNoStartList).join(' '))
@@ -224,12 +224,12 @@ const loginPageItem: Item[] = [
       })
       const toRegister = document.querySelector('span > a[href="/nb/user_register/registerAction!register_xj_jsp.dhtml"]') as HTMLAnchorElement
       toRegister && toRegister.addEventListener('click', () => {
-        regno.value.length === 18 && GEStorage.set('login_to_register_regno', regno.value)
+        (regno.value.length === 18 || regno.value.length === 15) && GEStorage.set('login_to_register_regno', regno.value)
         cid.value.length === 18 && GEStorage.set('login_to_register_cid_p', cid.value)
       })
       const toChange = document.querySelector('span > a[href="/nb/user_register/registerAction!llybg_jsp.dhtml"]') as HTMLAnchorElement
       toChange && toChange.addEventListener('click', () => {
-        regno.value.length === 18 && GEStorage.set('login_to_change_regno', regno.value)
+        (regno.value.length === 18 || regno.value.length === 15) && GEStorage.set('login_to_change_regno', regno.value)
         cid.value.length === 18 && GEStorage.set('login_to_change_cid_p', cid.value)
         phone.value.length === 11 && GEStorage.set('login_to_change_phone_p', phone.value)
         name.value.length > 0 && GEStorage.set('login_to_change_name_p', name.value)

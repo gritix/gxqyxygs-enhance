@@ -87,7 +87,7 @@ const registerPageItem: Item[] = [
         const regno = getEleById<HTMLInputElement>(registerPageElementIds.regno)
         const cid_p = getEleById<HTMLInputElement>(registerPageElementIds.cid_p)
         const phone_p = getEleById<HTMLInputElement>(registerPageElementIds.phone_p)
-        regno && (regno.value.length === 18) && GEStorage.set('register_to_login_regno', regno.value)
+        regno && (regno.value.length === 18 || regno.value.length === 15) && GEStorage.set('register_to_login_regno', regno.value)
         cid_p && (cid_p.value.length === 18) && GEStorage.set('register_to_login_cid_p', cid_p.value)
         phone_p && (phone_p.value.length === 11) && GEStorage.set('register_to_add_phone_p', phone_p.value)
       })
